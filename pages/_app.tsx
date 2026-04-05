@@ -1,5 +1,4 @@
 import 'tailwindcss/tailwind.css';
-import '@fontsource/noto-sans/latin.css';
 
 import UIState from 'libs/web/state/ui';
 import { AppProps } from 'next/app';
@@ -16,6 +15,7 @@ import { muiLocale } from 'locales';
 import { ServerProps } from 'libs/server/connect';
 import { SnackbarProvider } from 'notistack';
 import { createTheme } from '@material-ui/core/styles';
+import '../styles/globals.css';
 
 const handleRejection = (event: any) => {
     // react-beautiful-dnd 会捕获到 `ResizeObserver loop limit exceeded`
@@ -78,9 +78,9 @@ const AppInner = ({
                         },
                     },
                 },
-                muiLocale[settings?.locale]
+                muiLocale[settings?.locale],
             ),
-        [resolvedTheme, settings]
+        [resolvedTheme, settings],
     );
 
     useEffect(() => {
@@ -125,9 +125,11 @@ const AppInner = ({
 };
 
 function MyApp(props: AppProps & { pageProps: ServerProps }) {
-    return <ThemeProvider attribute="class" storageKey="nightwind-mode">
-        <AppInner {...props} />
-    </ThemeProvider>;
+    return (
+        <ThemeProvider attribute="class" storageKey="nightwind-mode">
+            <AppInner {...props} />
+        </ThemeProvider>
+    );
 }
 
 export default MyApp;

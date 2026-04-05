@@ -27,8 +27,9 @@ module.exports = {
             },
         },
         fontFamily: {
-            sans: ['Noto Sans'].concat(defaultConfig.theme.fontFamily['sans']),
-            mono: defaultConfig.theme.fontFamily['mono']
+            //sans: ['Noto Sans'].concat(defaultConfig.theme.fontFamily['sans']),
+            sans: ['Geist'].concat(defaultConfig.theme.fontFamily['sans']),
+            mono: defaultConfig.theme.fontFamily['mono'],
         },
     },
     variants: {
