@@ -183,8 +183,8 @@ STORE_ACCESS_KEY=
 STORE_SECRET_KEY=
 STORE_BUCKET=notea
 STORE_END_POINT=
-STORE_REGION=us-east-1
-PASSWORD=notea
+STORE_REGION=auto
+PASSWORD=change_to_strong_password
 
 #  The parameter of STORE_END_POINT is the S3 API link (https://...) stored in r2
 ```
