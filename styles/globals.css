@@ -21,3 +21,21 @@
     font-display: swap;
     src: url('/fonts/Geist/Geist-SemiBold.ttf');
 }
+
+@font-face {
+    font-family: 'Departure Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/DepartureMono/DepartureMono-Regular.ttf');
+}
+
+body.font-geist {
+    --font-sans: 'Geist';
+    font-family: 'Geist', sans-serif;
+}
+
+body.font-departure-mono {
+    --font-sans: 'Departure Mono';
+    font-family: 'Departure Mono', monospace;
+}
