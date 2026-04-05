@@ -1,4 +1,12 @@
 @font-face {
+    font-family: 'Departure Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/DepartureMono/DepartureMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
     font-family: 'Geist';
     font-style: normal;
     font-weight: 400;
@@ -23,19 +31,49 @@
 }
 
 @font-face {
-    font-family: 'Departure Mono';
+    font-family: 'Junction';
+    src: url('/fonts/Junction/junction-bold.woff') format('woff');
+    font-weight: bold;
     font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/fonts/DepartureMono/DepartureMono-Regular.woff2') format('woff2');
 }
 
-body.font-geist {
-    --font-sans: 'Geist';
-    font-family: 'Geist', sans-serif;
+@font-face {
+    font-family: 'Junction';
+    src: url('/fonts/Junction/junction-light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-body.font-departure-mono {
-    --font-sans: 'Departure Mono';
-    font-family: 'Departure Mono', monospace;
+@font-face {
+    font-family: 'Junction';
+    src: url('/fonts/Junction/junction-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body.font-departure-mono,
+body.font-departure-mono .MuiInputBase-root,
+body.font-departure-mono .MuiInputLabel-root,
+body.font-departure-mono .MuiMenuItem-root,
+body.font-departure-mono .MuiListItem-root,
+body.font-departure-mono .MuiTypography-root {
+    font-family: 'Departure Mono', monospace !important;
+}
+
+body.font-geist,
+body.font-geist .MuiInputBase-root,
+body.font-geist .MuiInputLabel-root,
+body.font-geist .MuiMenuItem-root,
+body.font-geist .MuiListItem-root,
+body.font-geist .MuiTypography-root {
+    font-family: 'Geist', sans-serif !important;
+}
+
+body.font-junction,
+body.font-junction .MuiInputBase-root,
+body.font-junction .MuiInputLabel-root,
+body.font-junction .MuiMenuItem-root,
+body.font-junction .MuiListItem-root,
+body.font-junction .MuiTypography-root {
+    font-family: 'Junction', sans-serif !important;
 }
