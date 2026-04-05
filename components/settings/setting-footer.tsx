@@ -1,5 +1,7 @@
 import pkg from 'package.json';
 
+const currentYear = new Date().getFullYear();
+
 export const SettingFooter = () => {
     return (
         <footer className="mt-20 text-center opacity-50 text-xs">
@@ -15,13 +17,13 @@ export const SettingFooter = () => {
             <div className="space-x-1">
                 <span>MIT &copy;</span>
                 <a
-                    href="https://github.com/notea-org/notea"
+                    href="https://github.com/mark-heffernan/notea"
                     target="_blank"
                     rel="noreferrer"
                 >
                     Notea Contributors
                 </a>
-                <span>2022</span>
+                <span>{currentYear}</span>
             </div>
         </footer>
     );
