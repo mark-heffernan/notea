@@ -4,8 +4,9 @@ import { defaultFieldConfig } from './settings-container';
 import useI18n from 'libs/web/hooks/use-i18n';
 
 const FONTS = [
-    { label: 'Geist', value: 'geist' },
     { label: 'Departure Mono', value: 'departure-mono' },
+    { label: 'Geist', value: 'geist' },
+    { label: 'Junction', value: 'junction' },
 ];
 
 export const FontFamily: FC = () => {

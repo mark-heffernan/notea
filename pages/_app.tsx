@@ -86,7 +86,11 @@ const AppInner = ({
     useEffect(() => {
         // Font selector
         const saved = localStorage.getItem('font') || 'geist';
-        document.body.classList.remove('font-geist', 'font-departure-mono');
+        document.body.classList.remove(
+            'font-departure-mono',
+            'font-geist',
+            'font-junction',
+        );
         document.body.classList.add(`font-${saved}`);
 
         // Remove the server-side injected CSS.
