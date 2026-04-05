@@ -10,6 +10,7 @@ import useI18n from 'libs/web/hooks/use-i18n';
 import { SettingsHeader } from './settings-header';
 import { Debugging } from 'components/settings/debugging';
 import { DebugInformation } from 'libs/shared/debugging';
+import { FontFamily } from './font-family';
 
 export const defaultFieldConfig: TextFieldProps = {
     fullWidth: true,
@@ -29,7 +30,7 @@ const HR = () => {
 };
 
 export const SettingsContainer: FC<{
-    debugInfo: DebugInformation
+    debugInfo: DebugInformation;
 }> = (props) => {
     const { t } = useI18n();
 
@@ -39,6 +40,7 @@ export const SettingsContainer: FC<{
             <DailyNotes></DailyNotes>
             <Language></Language>
             <Theme></Theme>
+            <FontFamily></FontFamily>
             <EditorWidth></EditorWidth>
 
             <HR />
@@ -46,7 +48,7 @@ export const SettingsContainer: FC<{
                 id="import-and-export"
                 title={t('Import & Export')}
                 description={t(
-                    'Import a zip file containing markdown files to this location, or export all pages from this location.'
+                    'Import a zip file containing markdown files to this location, or export all pages from this location.',
                 )}
             ></SettingsHeader>
             <ImportOrExport></ImportOrExport>
@@ -60,7 +62,7 @@ export const SettingsContainer: FC<{
                 id="debug"
                 title={t('Debugging')}
                 description={t(
-                    'Provides information about your Notea instance that can be helpful when trying to fix problems.'
+                    'Provides information about your Notea instance that can be helpful when trying to fix problems.',
                 )}
             />
             <Debugging debugInfo={props.debugInfo} />
