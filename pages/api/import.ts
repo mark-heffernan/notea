@@ -64,7 +64,7 @@ export default api()
                     if (extension === entryNameExtension) {
                         name = v.name.substring(
                             0,
-                            v.name.length - extension.length
+                            v.name.length - extension.length,
                         );
                         isMarkdown = true;
                         break;
@@ -99,7 +99,7 @@ export default api()
 
         async function createNotes(
             currentNode: HierarchyNode,
-            parent?: string
+            parent?: string,
         ): Promise<string> {
             let date: string | undefined,
                 title: string | undefined,
@@ -133,9 +133,13 @@ export default api()
             return createdNote.id;
         }
 
-        await Promise.all(
-            Object.values(hierachy).map((v) => createNotes(v, pid))
-        );
+        //await Promise.all(
+        //    Object.values(hierachy).map((v) => createNotes(v, pid))
+        //);
+
+        for (const v of Object.values(hierachy)) {
+            await createNotes(v, pid);
+        }
 
         res.json({ total, imported: count });
     });
