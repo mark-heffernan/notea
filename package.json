@@ -1,6 +1,6 @@
 {
     "name": "notea",
-    "version": "0.4.0-alpha",
+    "version": "0.4.1-local",
     "private": true,
     "scripts": {
         "dev": "next",
@@ -16,7 +16,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/notea-org/notea"
+        "url": "https://github.com/mark-heffernan/notea"
     },
     "husky": {
         "hooks": {
