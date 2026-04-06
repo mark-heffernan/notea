@@ -20,6 +20,7 @@ import {
     PuzzleIcon,
     ChevronDoubleUpIcon,
     RefreshIcon,
+    CogIcon,
 } from '@heroicons/react/outline';
 
 export const ICONS = {
@@ -42,7 +43,10 @@ export const ICONS = {
     Puzzle: PuzzleIcon,
     ChevronDoubleUp: ChevronDoubleUpIcon,
     Refresh: RefreshIcon,
-    WidthSize: (props: any) => <SelectorIcon style={{ transform: 'rotate(90deg)' }} {...props}/>
+    Cog: CogIcon,
+    WidthSize: (props: any) => (
+        <SelectorIcon style={{ transform: 'rotate(90deg)' }} {...props} />
+    ),
 };
 
 const IconButton = forwardRef<
@@ -64,7 +68,7 @@ const IconButton = forwardRef<
             onClick,
             ...attrs
         },
-        ref
+        ref,
     ) => {
         const Icon = ICONS[icon];
 
@@ -74,7 +78,7 @@ const IconButton = forwardRef<
                     onClick(event);
                 }
             },
-            [disabled, onClick]
+            [disabled, onClick],
         );
 
         return (
@@ -89,14 +93,14 @@ const IconButton = forwardRef<
                         'cursor-not-allowed opacity-20': disabled,
                     },
                     !disabled && 'hover:bg-gray-400',
-                    className
+                    className,
                 )}
             >
                 <Icon className={classNames(iconClassName)}></Icon>
                 {children}
             </span>
         );
-    }
+    },
 );
 
 export default IconButton;

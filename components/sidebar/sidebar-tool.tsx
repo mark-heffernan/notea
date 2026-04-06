@@ -3,7 +3,6 @@ import {
     TrashIcon,
     ChevronDoubleLeftIcon,
     InboxIcon,
-    CogIcon,
 } from '@heroicons/react/outline';
 import { forwardRef, HTMLProps, useCallback } from 'react';
 import UIState from 'libs/web/state/ui';
@@ -13,7 +12,6 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import PortalState from 'libs/web/state/portal';
 import useI18n from 'libs/web/hooks/use-i18n';
-import HeadwayWidget from '@notea/headway-widget';
 import useMounted from 'libs/web/hooks/use-mounted';
 import { useRouter } from 'next/router';
 
@@ -26,13 +24,13 @@ const ButtonItem = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
                 ref={ref}
                 className={classNames(
                     'block m-3 text-gray-500 hover:text-gray-800 cursor-pointer',
-                    className
+                    className,
                 )}
             >
                 {children}
             </div>
         );
-    }
+    },
 );
 
 const ButtonMenu = () => {
@@ -41,8 +39,9 @@ const ButtonMenu = () => {
         sidebar: { toggle, isFold },
     } = UIState.useContainer();
     const onFold = useCallback(() => {
-        toggle()
-            ?.catch((v) => console.error('Error whilst toggling tool: %O', v));
+        toggle()?.catch((v) =>
+            console.error('Error whilst toggling tool: %O', v),
+        );
     }, [toggle]);
 
     return (
@@ -102,7 +101,7 @@ const ButtonTrash = () => {
 
 const ButtonDailyNotes = () => {
     const { t } = useI18n();
-    const href = `/${dayjs().format('YYYY-MM-DD')}`;
+    const href = `/${dayjs().format('DD.MM.YYYY')}`; // change from YYYY-MM-DD to DD-MM-YYYY or DD.MM.YYYY
     const router = useRouter();
 
     return (
@@ -123,25 +122,7 @@ const ButtonDailyNotes = () => {
     );
 };
 
-const ButtonSettings = () => {
-    const { t } = useI18n();
-
-    return (
-        <Link href="/settings" shallow>
-            <a>
-                <HotkeyTooltip text={t('Settings')}>
-                    <ButtonItem aria-label="settings">
-                        <CogIcon />
-                    </ButtonItem>
-                </HotkeyTooltip>
-            </a>
-        </Link>
-    );
-};
-
 const SidebarTool = () => {
-    const mounted = useMounted();
-
     return (
         <aside className="h-full flex flex-col w-12  md:w-11 flex-none bg-gray-200">
             <ButtonSearch />
@@ -149,18 +130,7 @@ const SidebarTool = () => {
             <ButtonDailyNotes />
 
             <div className="tool mt-auto">
-                {mounted ? (
-                    <HeadwayWidget account="J031Z7" badgePosition="center">
-                        <div className="mx-3 w-5 h-5"></div>
-                    </HeadwayWidget>
-                ) : null}
-                <ButtonMenu></ButtonMenu>
-                <ButtonSettings></ButtonSettings>
-                <style jsx>{`
-                    .tool :global(.HW_softHidden) {
-                        display: none;
-                    }
-                `}</style>
+                <ButtonMenu />
             </div>
         </aside>
     );

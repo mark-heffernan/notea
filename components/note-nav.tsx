@@ -20,10 +20,13 @@ const MenuButton = () => {
     const onToggle = useCallback(
         (e: MouseEvent) => {
             e.stopPropagation();
-            sidebar.toggle()
-                ?.catch((v) => console.error('Error whilst toggling sidebar: %O', v));
+            sidebar
+                .toggle()
+                ?.catch((v) =>
+                    console.error('Error whilst toggling sidebar: %O', v),
+                );
         },
-        [sidebar]
+        [sidebar],
     );
 
     return (
@@ -49,7 +52,7 @@ const NoteNav = () => {
             share.setAnchor(event.target as Element);
             share.open();
         },
-        [note, share]
+        [note, share],
     );
 
     const handleClickMenu = useCallback(
@@ -59,7 +62,7 @@ const NoteNav = () => {
             // debugger;
             menu.open();
         },
-        [note, menu]
+        [note, menu],
     );
     const handleClickEditorWidth = useCallback(
         (event: MouseEvent) => {
@@ -67,7 +70,7 @@ const NoteNav = () => {
             editorWidthSelect.setAnchor(event.target as Element);
             editorWidthSelect.open();
         },
-        [note, editorWidthSelect]
+        [note, editorWidthSelect],
     );
 
     const handleClickOpenInTree = useCallback(() => {
@@ -81,7 +84,7 @@ const NoteNav = () => {
                 'fixed bg-gray-50 z-10 p-2 flex items-center right-0',
                 {
                     shadow: ua.isMobileOnly,
-                }
+                },
             )}
             style={{
                 width: ua.isMobileOnly ? '100%' : 'inherit',
@@ -146,7 +149,7 @@ const NoteNav = () => {
                     'flex mr-2 transition-opacity delay-100',
                     {
                         'opacity-0': !loading,
-                    }
+                    },
                 )}
             >
                 <CircularProgress size="14px" color="inherit" />
@@ -167,16 +170,22 @@ const NoteNav = () => {
                     icon="WidthSize"
                     className="mr-2"
                     onClick={handleClickEditorWidth}
-                >
-                </IconButton>
+                ></IconButton>
             </HotkeyTooltip>
-            <HotkeyTooltip text={t('Settings')}>
+            <HotkeyTooltip text={t('Options')}>
                 <IconButton
                     disabled={!note}
                     onClick={handleClickMenu}
                     icon="DotsHorizontal"
                 />
             </HotkeyTooltip>
+            <Link href="/settings" shallow>
+                <a>
+                    <HotkeyTooltip text={t('Settings')}>
+                        <IconButton icon="Cog" className="ml-2" />
+                    </HotkeyTooltip>
+                </a>
+            </Link>
         </nav>
     );
 };
