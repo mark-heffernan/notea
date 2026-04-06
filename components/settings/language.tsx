@@ -18,14 +18,16 @@ export const Language: FC = () => {
             await updateSettings({ locale: event.target.value as Locale });
             router.reload();
         },
-        [updateSettings]
+        [updateSettings],
     );
 
     return (
         <TextField
             {...defaultFieldConfig}
             label={`${t('Language')}${
-                activeLocale !== Locale.EN ? '(Language)' : ''
+                activeLocale !== Locale.EN && activeLocale !== Locale.EN_GB
+                    ? ' (Language)'
+                    : ''
             }`}
             value={settings.locale}
             onChange={handleChange}
