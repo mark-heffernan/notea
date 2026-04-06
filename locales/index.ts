@@ -46,6 +46,6 @@ export const configLocale: Record<Locale, string> = {
     [Locale.ar]: 'العربية',
     [Locale.it_IT]: 'Italiano',
     [Locale.nl_NL]: 'Nederlands',
-    [Locale.fr_FR]: 'français',
+    [Locale.fr_FR]: 'Français',
     [Locale.sv_SE]: 'Svenska',
 };
