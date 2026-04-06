@@ -17,7 +17,7 @@ export const DEFAULT_SETTINGS: Settings = Object.freeze({
     split_sizes: [30, 70] as [number, number],
     daily_root_id: ROOT_ID,
     sidebar_is_fold: false,
-    locale: Locale.EN,
+    locale: Locale.EN_GB,
     editorsize: EDITOR_SIZE.SMALL,
 });
 
