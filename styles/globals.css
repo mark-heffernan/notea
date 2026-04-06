@@ -77,3 +77,10 @@ body.font-junction .MuiListItem-root,
 body.font-junction .MuiTypography-root {
     font-family: 'Junction', sans-serif !important;
 }
+
+.MuiTooltip-tooltip {
+    font-size: 13px !important;
+    padding: 8px 12px !important;
+    line-height: 1.5 !important;
+    max-width: 220px !important;
+}
