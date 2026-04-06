@@ -100,7 +100,7 @@ const ButtonTrash = () => {
 
 const ButtonDailyNotes = () => {
     const { t } = useI18n();
-    const href = `/${dayjs().format('DD.MM.YYYY')}`; // change from YYYY-MM-DD to DD-MM-YYYY or DD.MM.YYYY
+    const href = `/${dayjs().format('YYYY-MM-DD')}`; // change from YYYY-MM-DD to DD.MM.YYYY doesn't work and breaks the routing
     const router = useRouter();
 
     return (
