@@ -18,8 +18,9 @@ const EditNotePage: NextPage<{ tree: TreeModel }> = ({ tree }) => {
 
     useEffect(() => {
         if (ua.isMobileOnly) {
-            Router.push('/new')
-                ?.catch((v) => console.error('Error whilst pushing /new route: %O', v));
+            Router.push('/new')?.catch((v) =>
+                console.error('Error whilst pushing /new route: %O', v),
+            );
         }
     }, [ua.isMobileOnly]);
 
@@ -27,7 +28,7 @@ const EditNotePage: NextPage<{ tree: TreeModel }> = ({ tree }) => {
         <LayoutMain tree={tree}>
             <div className="flex flex-col h-screen">
                 <div className="m-auto text-center flex flex-col items-center">
-                    <Link href="https://github.com/qingwei-li/notea">
+                    <Link href="https://github.com/notea-org/notea">
                         <a target="_blank">
                             <img
                                 className="w-60 h-60 opacity-10 -mt-40"
